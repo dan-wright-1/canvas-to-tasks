@@ -48,33 +48,8 @@ body {
   text-decoration: none;
 }
 
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links a {
-  color: var(--ink-light);
-  text-decoration: none;
-  font-size: 15px;
-}
-
-.nav-links .btn-outline {
-  border: 1px solid var(--border);
-  padding: 8px 16px;
-  border-radius: 6px;
-  color: var(--ink);
-}
-
-.nav-links .btn-solid {
-  background: var(--accent);
-  color: white;
-  padding: 8px 16px;
-  border-radius: 6px;
+.nav-row-solo {
+  justify-content: flex-start;
 }
 
 /* --- Hero (v1: generic, two competing CTAs) --- */
@@ -101,6 +76,30 @@ body {
   justify-content: center;
 }
 
+.mechanism-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 40px;
+  color: var(--ink-light);
+  font-size: 14px;
+}
+
+.mechanism-chip {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.mechanism-arrow {
+  color: var(--accent);
+  font-size: 18px;
+}
+
 .btn {
   display: inline-block;
   padding: 14px 28px;
@@ -123,36 +122,6 @@ body {
   border: 1px solid var(--border);
 }
 
-/* --- Generic feature row (v1 filler content) --- */
-.features {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  padding: 40px 24px 80px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.feature {
-  text-align: center;
-}
-
-.feature .icon {
-  font-size: 28px;
-  margin-bottom: 8px;
-}
-
-.feature h3 {
-  font-size: 16px;
-  margin: 0 0 6px;
-}
-
-.feature p {
-  font-size: 14px;
-  color: var(--ink-light);
-  margin: 0;
-}
-
 /* --- Review screen --- */
 .page-header {
   padding: 20px 0;
@@ -168,9 +137,51 @@ body {
   font-size: 14px;
 }
 
+.page-header .page-sub {
+  color: var(--ink-light);
+  font-size: 15px;
+  margin: 8px 0 0;
+}
+
+.course-group {
+  border-left: 4px solid var(--course-color, var(--border));
+  border-radius: 8px;
+  background: var(--card);
+  padding: 4px 16px 12px;
+  margin-bottom: 20px;
+}
+
+.course-group-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 14px 0 6px;
+}
+
+.course-group-header h2 {
+  font-size: 16px;
+  margin: 0;
+  color: var(--course-color, var(--ink));
+}
+
+.course-group-name {
+  font-weight: 400;
+  color: var(--ink-light);
+  font-size: 13px;
+}
+
+.select-all {
+  font-size: 13px;
+  color: var(--ink-light);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
 .assignment-list {
   list-style: none;
-  margin: 24px 0;
+  margin: 8px 0 0;
   padding: 0;
 }
 
@@ -178,11 +189,12 @@ body {
   display: flex;
   align-items: center;
   gap: 14px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 14px 16px;
-  margin-bottom: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.assignment-row:last-child {
+  border-bottom: none;
 }
 
 .assignment-row input[type="checkbox"] {
