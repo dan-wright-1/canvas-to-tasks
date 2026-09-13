@@ -8,8 +8,8 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="nav-row">
-      <span class="logo">Canvas&nbsp;&rarr;&nbsp;Tasks</span>
+    <div class="nav-row nav-row-solo">
+      <a href="index.html" class="logo">Canvas&nbsp;&rarr;&nbsp;Tasks</a>
     </div>
   </header>
 
@@ -17,10 +17,15 @@
     <div class="success-block">
       <div class="success-icon">&#10003;</div>
       <h1><span id="synced-count">0</span> assignments synced to Google Tasks</h1>
-      <p>They're now in your Google Tasks list.</p>
+      <p>They're now in the list you already check every day — nothing left to copy by hand.</p>
     </div>
 
     <ul class="task-list" id="task-list"></ul>
+
+    <div class="actions-row">
+      <a href="review.html" class="btn btn-secondary">Sync more</a>
+      <a href="index.html" class="btn btn-secondary">Back to home</a>
+    </div>
   </div>
 
   <script src="app.js"></script>

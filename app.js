@@ -9,33 +9,70 @@ const ASSIGNMENTS = [
   { id: "a7", course: "REL 225", courseName: "Foundations of the Restoration", title: "Discussion Post 4", due: "Sun, Sep 20", points: 10 },
 ];
 
-function renderAssignmentList() {
-  const list = document.getElementById("assignment-list");
-  if (!list) return;
-  list.innerHTML = ASSIGNMENTS.map(a => `
-    <li class="assignment-row">
-      <input type="checkbox" checked data-id="${a.id}" />
-      <div class="assignment-main">
-        <div class="assignment-title">${a.title}</div>
-        <div class="assignment-meta">${a.course} &middot; ${a.points} pts</div>
+const COURSE_COLORS = {
+  "CS 340": "#4f46e5",
+  "STAT 121": "#0891b2",
+  "WRTG 316": "#c2410c",
+  "REL 225": "#15803d",
+};
+
+function groupByCourse() {
+  const groups = {};
+  ASSIGNMENTS.forEach(a => {
+    if (!groups[a.course]) groups[a.course] = { courseName: a.courseName, items: [] };
+    groups[a.course].items.push(a);
+  });
+  return groups;
+}
+
+function renderAssignmentGroups() {
+  const container = document.getElementById("assignment-groups");
+  if (!container) return;
+  const groups = groupByCourse();
+
+  container.innerHTML = Object.entries(groups).map(([course, group]) => `
+    <section class="course-group" style="--course-color: ${COURSE_COLORS[course] || "#64748b"}">
+      <div class="course-group-header">
+        <h2>${course} <span class="course-group-name">${group.courseName}</span></h2>
+        <label class="select-all">
+          <input type="checkbox" checked data-select-all="${course}" /> Select all
+        </label>
       </div>
-      <div class="assignment-due">${a.due}</div>
-    </li>
+      <ul class="assignment-list">
+        ${group.items.map(a => `
+          <li class="assignment-row">
+            <input type="checkbox" checked data-id="${a.id}" data-course="${course}" />
+            <div class="assignment-main">
+              <div class="assignment-title">${a.title}</div>
+              <div class="assignment-meta">${a.points} pts</div>
+            </div>
+            <div class="assignment-due">${a.due}</div>
+          </li>
+        `).join("")}
+      </ul>
+    </section>
   `).join("");
+
   updateSyncCount();
-  list.addEventListener("change", updateSyncCount);
+  container.addEventListener("change", (e) => {
+    if (e.target.dataset.selectAll) {
+      const course = e.target.dataset.selectAll;
+      container.querySelectorAll(`input[data-course="${course}"]`).forEach(cb => cb.checked = e.target.checked);
+    }
+    updateSyncCount();
+  });
 }
 
 function updateSyncCount() {
   const btn = document.getElementById("sync-btn");
   if (!btn) return;
-  const checked = document.querySelectorAll("#assignment-list input[type=checkbox]:checked").length;
+  const checked = document.querySelectorAll("#assignment-groups input[data-id]:checked").length;
   btn.textContent = `Sync ${checked} to Google Tasks`;
   btn.disabled = checked === 0;
 }
 
 function goSync() {
-  const checked = Array.from(document.querySelectorAll("#assignment-list input[type=checkbox]:checked"))
+  const checked = Array.from(document.querySelectorAll("#assignment-groups input[data-id]:checked"))
     .map(cb => cb.dataset.id);
   localStorage.setItem("syncedIds", JSON.stringify(checked));
   window.location.href = "synced.html";
