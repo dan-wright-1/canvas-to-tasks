@@ -51,9 +51,23 @@ Opening the live URL cold, as a first-time visitor:
 
 ### Before / after: the landing screen
 
-**Before** ([initial commit](https://github.com/dan-wright-1/canvas-to-tasks/blob/8d56d98/index.html)): A navbar with Features / Pricing / Login / Sign Up sat above a vague headline ("The smarter way to manage your student life"), followed by two equal-weight buttons (Sign Up Free / See Features) and a three-icon feature row (Sync / Organize / Never Miss). Nothing told a first-time visitor what the product actually does in the first five seconds — the hero gave equal visual weight to four nav items and two CTAs, so no single element was signaling the primary capability.
+| Before ([initial commit](https://github.com/dan-wright-1/canvas-to-tasks/blob/8d56d98/index.html)) | After ([current](index.html)) |
+|---|---|
+| ![Before: generic navbar and two competing CTAs](screenshots/before-landing.png) | ![After: one affordance sentence and one CTA](screenshots/after-landing.png) |
 
-**After** ([current `index.html`](index.html)): The navbar is gone. The headline states the capability and mechanism directly ("Turn your Canvas assignments into Google Tasks — synced in one click"), the subhead carries the value (certainty), and there is exactly one button ("Connect Canvas"). A small "Canvas → Google Tasks" chip row below reinforces the same message instead of adding a new one.
+A navbar with Features / Pricing / Login / Sign Up sat above a vague headline ("The smarter way to manage your student life"), followed by two equal-weight buttons (Sign Up Free / See Features) and a three-icon feature row (Sync / Organize / Never Miss). Nothing told a first-time visitor what the product actually does in the first five seconds — the hero gave equal visual weight to four nav items and two CTAs, so no single element was signaling the primary capability.
+
+After: the navbar is gone. The headline states the capability and mechanism directly ("Turn your Canvas assignments into Google Tasks — synced in one click"), the subhead carries the value (certainty), and there is exactly one button ("Connect Canvas"). A small "Canvas → Google Tasks" chip row below reinforces the same message instead of adding a new one.
+
+### Before / after: the review screen
+
+| Before | After |
+|---|---|
+| ![Before: one flat ungrouped list of seven assignments](screenshots/before-review.png) | ![After: assignments grouped into four color-coded course cards](screenshots/after-review.png) |
+
+Before: all seven assignments sat in one flat list in arbitrary order, with the course name as a small subtext line — nothing visually distinguished a CS 340 assignment from a REL 225 one, so scanning it felt like reading a spreadsheet.
+
+After: assignments are grouped into per-course cards using **proximity** (spacing), **common region** (the card border), and **similarity** (a repeated accent color per course), each with its own "select all." A student can now tell at a glance which assignments belong to which class.
 
 ## Design brief (handed to the agent)
 
