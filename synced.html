@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Synced — Canvas to Tasks</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-row">
+      <span class="logo">Canvas&nbsp;&rarr;&nbsp;Tasks</span>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="success-block">
+      <div class="success-icon">&#10003;</div>
+      <h1><span id="synced-count">0</span> assignments synced to Google Tasks</h1>
+      <p>They're now in your Google Tasks list.</p>
+    </div>
+
+    <ul class="task-list" id="task-list"></ul>
+  </div>
+
+  <script src="app.js"></script>
+  <script>renderSyncedList();</script>
+</body>
+</html>

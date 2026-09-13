@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Review Assignments — Canvas to Tasks</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-row">
+      <span class="logo">Canvas&nbsp;&rarr;&nbsp;Tasks</span>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="page-header">
+      <div class="step">Step 1 of 2</div>
+      <h1>Review your assignments</h1>
+    </div>
+
+    <ul class="assignment-list" id="assignment-list"></ul>
+
+    <div class="sync-bar">
+      <button class="btn btn-primary" id="sync-btn" onclick="goSync()">Sync to Google Tasks</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>renderAssignmentList();</script>
+</body>
+</html>
